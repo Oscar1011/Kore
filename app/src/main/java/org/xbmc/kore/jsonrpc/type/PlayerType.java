@@ -15,11 +15,14 @@
  */
 package org.xbmc.kore.jsonrpc.type;
 
+import android.util.Log;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.xbmc.kore.utils.JsonUtils;
+import org.xbmc.kore.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -195,7 +198,7 @@ public class PlayerType {
 
         public AudioStream(JsonNode node) {
             index = JsonUtils.intFromJsonNode(node, INDEX);
-            language = JsonUtils.stringFromJsonNode(node, LANGUAGE);
+            language = Utils.eng2Chi(JsonUtils.stringFromJsonNode(node, LANGUAGE));
             name = JsonUtils.stringFromJsonNode(node, NAME);
         }
 
@@ -244,7 +247,7 @@ public class PlayerType {
 
         public Subtitle(JsonNode node) {
             index = JsonUtils.intFromJsonNode(node, INDEX);
-            language = JsonUtils.stringFromJsonNode(node, LANGUAGE);
+            language = Utils.eng2Chi(JsonUtils.stringFromJsonNode(node, LANGUAGE));
             name = JsonUtils.stringFromJsonNode(node, NAME);
         }
 

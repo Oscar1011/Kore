@@ -51,8 +51,8 @@ public class PVRListFragment extends AbstractTabsFragment
 
         return new TabsAdapter(getActivity(), getChildFragmentManager())
                 .addTab(PVRChannelsListFragment.class, tvArgs, R.string.tv_channels, 1)
-                .addTab(PVRChannelsListFragment.class, radioArgs, R.string.radio_channels, 2)
-                .addTab(PVRRecordingsListFragment.class, getArguments(), R.string.recordings, 3);
+               /* .addTab(PVRChannelsListFragment.class, radioArgs, R.string.radio_channels, 2)
+                .addTab(PVRRecordingsListFragment.class, getArguments(), R.string.recordings, 3)*/;
     }
 
     @Override

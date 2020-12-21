@@ -26,6 +26,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -144,6 +145,8 @@ public class NowPlayingFragment extends Fragment
     @BindView(R.id.shuffle) HighlightButton shuffleButton;
     @BindView(R.id.repeat) RepeatModeButton repeatButton;
     @BindView(R.id.overflow) ImageButton overflowButton;
+    @BindView(R.id.audiostreams) Button audioButton;
+    @BindView(R.id.subtitles) Button subtitlesButton;
 
     @BindView(R.id.info_panel) RelativeLayout infoPanel;
     @BindView(R.id.media_panel) ScrollView mediaPanel;
@@ -363,6 +366,57 @@ public class NowPlayingFragment extends Fragment
         popup.show();
     }
 
+    @OnClick(R.id.audiostreams)
+    public void onAudioStreamsClicked(View v) {
+        int selectedItem = -1;
+        // Setup audiostream select dialog
+        String[] audiostreams = new String[(availableAudioStreams != null) ?
+                availableAudioStreams.size() + ADDED_AUDIO_OPTIONS : ADDED_AUDIO_OPTIONS];
+
+        audiostreams[0] = getString(R.string.audio_sync);
+
+        if (availableAudioStreams != null) {
+            for (int i = 0; i < availableAudioStreams.size(); i++) {
+                PlayerType.AudioStream current = availableAudioStreams.get(i);
+                audiostreams[i + ADDED_AUDIO_OPTIONS] = TextUtils.isEmpty(current.language) ?
+                        current.name : current.language + " | " + current.name;
+                if (current.index == currentAudiostreamIndex) {
+                    selectedItem = i + ADDED_AUDIO_OPTIONS;
+                }
+            }
+
+            GenericSelectDialog dialog = GenericSelectDialog.newInstance(NowPlayingFragment.this,
+                    SELECT_AUDIOSTREAM, getString(R.string.audiostreams), audiostreams, selectedItem);
+            dialog.show(NowPlayingFragment.this.getFragmentManager(), null);
+        }
+    }
+
+    @OnClick(R.id.subtitles)
+    public void onSubtitlesClicked(View v) {
+        int selectedItem = -1;
+        // Setup subtitles select dialog
+        String[] subtitles = new String[(availableSubtitles != null) ?
+                availableSubtitles.size() + ADDED_SUBTITLE_OPTIONS : ADDED_SUBTITLE_OPTIONS];
+
+        subtitles[0] = getString(R.string.download_subtitle);
+        subtitles[1] = getString(R.string.subtitle_sync);
+        subtitles[2] = getString(R.string.none);
+
+        if (availableSubtitles != null) {
+            for (int i = 0; i < availableSubtitles.size(); i++) {
+                PlayerType.Subtitle current = availableSubtitles.get(i);
+                subtitles[i + ADDED_SUBTITLE_OPTIONS] = TextUtils.isEmpty(current.language) ?
+                        current.name : current.language + " | " + current.name;
+                if (current.index == currentSubtitleIndex) {
+                    selectedItem = i + ADDED_SUBTITLE_OPTIONS;
+                }
+            }
+        }
+
+        GenericSelectDialog dialog = GenericSelectDialog.newInstance(NowPlayingFragment.this,
+                SELECT_SUBTITLES, getString(R.string.subtitles), subtitles, selectedItem);
+        dialog.show(NowPlayingFragment.this.getFragmentManager(), null);
+    }
 
     // Number of explicitly added options for audio and subtitles (to subtract from the
     // number of audiostreams and subtitles returned by Kodi)

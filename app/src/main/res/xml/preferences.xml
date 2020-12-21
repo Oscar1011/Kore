@@ -41,6 +41,7 @@
         <MultiSelectListPreference
             android:key="pref_remote_bar_items"
             android:title="@string/remote_bar_items"
+            android:enabled="false"
             android:entries="@array/entries_remote_bar_items"
             android:entryValues="@array/entry_values_remote_bar_items"
             android:defaultValue="@array/default_values_remote_bar_items"/>
@@ -88,11 +89,11 @@
             android:summary="@string/show_now_playing_panel_summary"
             android:defaultValue="true"/>
 
-        <SwitchPreferenceCompat
-            android:key="pref_disable_local_play"
-            android:title="@string/disable_local_playback_support"
-            android:summary="@string/disable_local_playback_support_summary"
-            android:defaultValue="false"/>
+<!--        <SwitchPreferenceCompat-->
+<!--            android:key="pref_disable_local_play"-->
+<!--            android:title="@string/disable_local_playback_support"-->
+<!--            android:summary="@string/disable_local_playback_support_summary"-->
+<!--            android:defaultValue="true"/>-->
 
         <MultiSelectListPreference
             android:key="pref_nav_drawer_items"

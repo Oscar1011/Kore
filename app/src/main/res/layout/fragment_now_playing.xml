@@ -179,28 +179,49 @@
 
                 <org.xbmc.kore.ui.widgets.RepeatModeButton
                     android:id="@+id/repeat"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
                     style="@style/Widget.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/repeat"
                     android:src="?attr/iconRepeat"
-                    android:contentDescription="@string/repeat"/>
+                    android:visibility="gone" />
+
                 <org.xbmc.kore.ui.widgets.HighlightButton
                     android:id="@+id/shuffle"
+                    style="@style/Widget.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/shuffle"
+                    android:src="?attr/iconShuffle"
+                    android:visibility="gone" />
+                <Button
+                    android:id="@+id/audiostreams"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="match_parent"
                     style="@style/Widget.Button.Borderless"
-                    android:src="?attr/iconShuffle"
-                    android:contentDescription="@string/shuffle"/>
+                    android:text="@string/audiostreams"
+                    android:contentDescription="@string/audiostreams"/>
+                <Button
+                    android:id="@+id/subtitles"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    style="@style/Widget.Button.Borderless"
+                    android:text="@string/subtitles"
+                    android:contentDescription="@string/subtitles"/>
+
                 <ImageButton
                     android:id="@+id/overflow"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
                     style="@style/Widget.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/subtitles"
                     android:src="?attr/iconOverflow"
-                    android:contentDescription="@string/subtitles"/>
+                    android:visibility="gone" />
             </LinearLayout>
 
             <RelativeLayout

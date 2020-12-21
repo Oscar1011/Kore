@@ -148,6 +148,7 @@
                 android:layout_height="match_parent"
                 style="@style/Widget.Button.Borderless"
                 android:src="?attr/iconRepeat"
+                android:visibility="gone"
                 android:contentDescription="@string/repeat"/>
             <org.xbmc.kore.ui.widgets.HighlightButton
                 android:id="@+id/npp_shuffle"
@@ -156,6 +157,7 @@
                 android:layout_height="match_parent"
                 style="@style/Widget.Button.Borderless"
                 android:src="?attr/iconShuffle"
+                android:visibility="gone"
                 android:contentDescription="@string/shuffle"/>
         </LinearLayout>
     </LinearLayout>

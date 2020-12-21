@@ -195,7 +195,7 @@ public class UIUtils {
                        .load(hostManager.getHostInfo().getImageUrl(imageUrl))
                        .placeholder(avatarDrawable)
                        .resize(imageWidth, imageHeight)
-                       .centerCrop()
+                       .centerInside()
                        .into(imageView);
         } else {
             hostManager.getPicasso()

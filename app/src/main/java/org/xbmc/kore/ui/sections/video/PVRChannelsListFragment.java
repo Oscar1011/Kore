@@ -232,7 +232,7 @@ public class PVRChannelsListFragment extends AbstractSearchableFragment
                 if (!isAdded()) return;
                 LogUtils.LOGD(TAG, "Got channel groups");
 
-                if (result.size() == 1) {
+                if (result.size() >= 1) {
                     // Single channel group, go directly to channel list
                     singleChannelGroup = true;
                     selectedChannelGroupId = result.get(0).channelgroupid;

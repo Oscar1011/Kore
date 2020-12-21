@@ -87,6 +87,8 @@ public class NowPlayingPanel extends SlidingUpPanelLayout {
 
         setDragView(collapsedView);
         setupButtonClickListeners();
+        repeatModeButton.setVisibility(GONE);
+        shuffleButton.setVisibility(GONE);
     }
 
     @Override

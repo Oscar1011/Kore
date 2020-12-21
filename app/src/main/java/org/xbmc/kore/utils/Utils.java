@@ -288,4 +288,18 @@ public class Utils {
         }
         return locale;
     }
+
+    public static String eng2Chi(String language) {
+        switch (language) {
+            case "chi":
+            case "ch":
+            case "CHI":
+                language = "中文";
+                break;
+            case "eng":
+                language = "英文";
+                break;
+        }
+        return language;
+    }
 }
